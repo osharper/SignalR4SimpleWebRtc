@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebApplication1</RootNamespace>
-    <AssemblyName>WebApplication1</AssemblyName>
+    <RootNamespace>SignalR4SimpleWebRtc</RootNamespace>
+    <AssemblyName>SignalR4SimpleWebRtc</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -159,6 +159,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\ISimpleWebRtcClient.cs" />
+    <Compile Include="Hubs\RemoveClientMessage.cs" />
+    <Compile Include="Hubs\SimpleWebRtcClientResources.cs" />
+    <Compile Include="Hubs\SimpleWebRtcMessage.cs" />
+    <Compile Include="Hubs\SimpleWebRtcRoomClients.cs" />
+    <Compile Include="Hubs\SimpleWebRtcHub.cs" />
+    <Compile Include="Hubs\XirsysResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

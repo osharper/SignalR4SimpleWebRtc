@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace WebApplication1.Controllers
+namespace SignalR4SimpleWebRtc.Controllers
 {
 	public class ValuesController : ApiController
 	{
