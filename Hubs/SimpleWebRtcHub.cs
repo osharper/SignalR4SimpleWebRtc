@@ -24,7 +24,7 @@ namespace SignalR4SimpleWebRtc.Hubs
 		   We can have already established connection to SignalR
 		   so we need Init method at the beginnig of interaction with this hub instead of OnConnected
 		*/
-		public async Task Init()
+		public override async Task OnConnected()
 		{
 			// Only for socket.io compatibility
 			Clients.Caller.Connect();
