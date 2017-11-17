@@ -211,6 +211,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\demo.ts" />
+    <TypeScriptCompile Include="Scripts\EventEmitter.ts" />
+    <TypeScriptCompile Include="Scripts\SimpleWebRtcHub.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\signalr\signalr.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\simplewebrtc.d.ts" />
