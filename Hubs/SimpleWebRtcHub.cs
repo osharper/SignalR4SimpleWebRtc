@@ -20,10 +20,6 @@ namespace SignalR4SimpleWebRtc.Hubs
 		private static XirsysServer[] _iceServers;
 
 		// ▬▬ Handle Clients Connecting/Disconnecting ▬▬
-		/* 
-		   We can have already established connection to SignalR
-		   so we need Init method at the beginnig of interaction with this hub instead of OnConnected
-		*/
 		public override async Task OnConnected()
 		{
 			// Only for socket.io compatibility
@@ -61,14 +57,13 @@ namespace SignalR4SimpleWebRtc.Hubs
 
 		public virtual Task<SimpleWebRtcRoomClients> Join(string roomId)
 		{
-			List<string> roomConnections;
-			var hasGroupConnectionsList = RoomsConnectionsDictionary.TryGetValue(roomId, out roomConnections);
+			var hasGroupConnectionsList = RoomsConnectionsDictionary.TryGetValue(roomId, out var roomConnections);
 			if (!hasGroupConnectionsList)
 			{
 				roomConnections = new List<string>();
 				RoomsConnectionsDictionary.Add(roomId, roomConnections);
 			}
-			
+
 			// ReSharper disable once SimplifyLinqExpression
 			if (!roomConnections.Any(c => c == Context.ConnectionId))
 				roomConnections.Add(Context.ConnectionId);
@@ -88,7 +83,7 @@ namespace SignalR4SimpleWebRtc.Hubs
 		public void Leave(string roomId)
 		{
 			var roomsWithConnection = RoomsConnectionsDictionary
-									  // Select rooms with client ConncetionId
+									  // Select rooms with client ConnectionId
 									  .Where(kvp => kvp.Value.Any(c => c == Context.ConnectionId) &&
 													(roomId == null || roomId == kvp.Key))
 									  .Select(kvp => kvp).ToArray();
@@ -114,7 +109,7 @@ namespace SignalR4SimpleWebRtc.Hubs
 			message.From = Context.ConnectionId;
 			otherClient.Message(message);
 		}
-		
+
 		private async Task SendIceServers()
 		{
 			if (_iceServers != null)
